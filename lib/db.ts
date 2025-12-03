@@ -27,3 +27,4 @@ const connectToDB = async () => {
   }
   return cached.conn;
 };
+export default connectToDB;

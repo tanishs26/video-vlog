@@ -5,7 +5,7 @@ export const VIDEO_DIMENSIONS = {
   height: 1920,
 } as const;
 
-interface IVideo {
+export interface IVideo {
   _id?: string;
   title: string;
   description: string;
@@ -53,7 +53,7 @@ const videoSchema = new Schema<IVideo>(
       quality: {
         type: Number,
         min: 1,
-        max: 10,
+        max: 100,
       },
     },
   },
