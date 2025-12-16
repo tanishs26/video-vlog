@@ -6,7 +6,7 @@ import React, { useState } from "react";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [error, setError] = useState("");
   const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,6 +16,7 @@ function Login() {
       redirect: false,
     });
     if (result?.error) {
+      setError(result.error);
       console.log("Error", result.error);
     } else {
       router.push("/");
@@ -23,8 +24,11 @@ function Login() {
   };
   return (
     <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="text-center text-2xl">Login</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col max-w-lg gap-2 mx-auto"
+      >
         <label htmlFor="password">Email</label>
         <input
           type="email"
@@ -48,6 +52,9 @@ function Login() {
         >
           Submit
         </button>
+        {error && (
+          <span className="text-red-500 text-xl font-semibold">{error}</span>
+        )}
       </form>
     </div>
   );
