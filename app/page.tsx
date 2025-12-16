@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import FileUpload from "./components/FileUpload";
 import Upload from "./components/Upload";
 import { Video } from "@imagekit/next";
 
